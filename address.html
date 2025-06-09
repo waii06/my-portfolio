@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Address | My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <div class="dropdown">
+        <button class="dropbtn">Menu ▾</button>
+        <div class="dropdown-content">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Me</a>
+          <a href="address.html">Contact Details</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>Contact Details</h2>
+      <p><strong>Address:</strong> Pasinaya PH1 Block 50 Lot 5, Alab Street, Barangay Bulac, Santa Maria, Bulacan</p>
+      <p><strong>Contact Number:</strong> 0969-261-5804</p>
+      <p><strong>Facebook:</strong> <a href="https://www.facebook.com/wa.iixz" target="_blank">facebook.com/wa.iixz</a></p>
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/w4.ixz/" target="_blank">@w4.ixz</a></p>
+      <p><strong>Email:</strong> <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+      <p><strong>Secondary Email:</strong> <a href="mailto:your-second-email@example.com">your-second-email@example.com</a></p>
+    </div>
+  </div>
+
+  <script>
+    const colors = ["#f5f5dc", "#ffe4e1", "#e0ffff", "#fafad2", "#d8bfd8", "#add8e6"];
+    function changeBackgroundColor() {
+      document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    }
+    window.onload = () => {
+      changeBackgroundColor();
+      document.body.classList.add('loaded');
+    };
+
+    const links = document.querySelectorAll(".dropdown-content a");
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        document.body.classList.remove('loaded');
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      });
+    });
+  </script>
+</body>
+</html>

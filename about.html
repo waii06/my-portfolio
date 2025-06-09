@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Me | My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <div class="dropdown">
+        <button class="dropbtn">Menu ▾</button>
+        <div class="dropdown-content">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Me</a>
+          <a href="address.html">Contact Details</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>About Me</h2>
+      <img src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t39.30808-6/476503777_1640752803240636_1800646037076931389_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=n9OHIlgNQD0Q7kNvwFqx7Sn&_nc_oc=AdmbtpeDmedgf78H82Pb9fdR3rOZzHgxfOgfULojN5NP8vsFgC_3cgmZ78YDlrS7On8&_nc_zt=23&_nc_ht=scontent.fmnl25-1.fna&_nc_gid=5dZDM63xaqXCmQB8Qkj8rQ&oh=00_AfLUHRHHCckfjfmD_o6Wn6LxQuO0Bd30aGWNYQuUENRD5w&oe=6842583D" alt="My Photo" style="width: 100%; border-radius: 10px;">
+      <p><strong>Name:</strong> Terence Joshua J. Guevarra</p>
+      <p><strong>Age:</strong> 20</p>
+      <p><strong>Course:</strong> Associate in Computer Technology</p>
+      <p><strong>Date of Birth:</strong> 09.06.2004</p>
+      <p><strong>Citizenship:</strong> Filipino</p>
+      <p><strong>Religion:</strong> Christian</p>
+    </div>
+  </div>
+
+  <script>
+    const colors = ["#f5f5dc", "#ffe4e1", "#e0ffff", "#fafad2", "#d8bfd8", "#add8e6"];
+    function changeBackgroundColor() {
+      document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    }
+    window.onload = () => {
+      changeBackgroundColor();
+      document.body.classList.add('loaded');
+    };
+
+    const links = document.querySelectorAll(".dropdown-content a");
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        document.body.classList.remove('loaded');
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home | My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <div class="dropdown">
+        <button class="dropbtn">Menu ▾</button>
+        <div class="dropdown-content">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Me</a>
+          <a href="address.html">Contact Details</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>Welcome!</h2>
+      <p>This is the homepage of my personal portfolio. Use the menu to explore and learn more about me.</p>
+    </div>
+  </div>
+
+  <script>
+    const colors = ["#f5f5dc", "#ffe4e1", "#e0ffff", "#fafad2", "#d8bfd8", "#add8e6"];
+    function changeBackgroundColor() {
+      document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    }
+    window.onload = () => {
+      changeBackgroundColor();
+      document.body.classList.add('loaded');
+    };
+
+    const links = document.querySelectorAll(".dropdown-content a");
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        document.body.classList.remove('loaded');
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      });
+    });
+  </script>
+</body>
+</html>
